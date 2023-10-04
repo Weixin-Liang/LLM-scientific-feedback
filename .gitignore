@@ -1,0 +1,6 @@
+flagged/
+cache/
+logs/
+*.pyc
+*.json
+*.txt
