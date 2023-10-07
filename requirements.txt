@@ -1,0 +1,4 @@
+gradio
+pikepdf
+openai
+tiktoken
