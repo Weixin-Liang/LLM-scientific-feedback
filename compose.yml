@@ -1,0 +1,11 @@
+version: '3'
+services:
+  sciencebeam-parser:
+    image: "elifesciences/sciencebeam-parser:0.1.8"
+  scientific-feedback:
+    build: .
+    ports:
+      - "7799:7799"
+    environment:
+      - "CONVERT_URL=http://sciencebeam-parser:8070"
+      - "OPENAI_API_KEY=$OPENAI_API_KEY"

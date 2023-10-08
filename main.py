@@ -10,12 +10,14 @@ import pikepdf
 import requests
 import tiktoken
 
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY", None)
+CONVERT_URL = os.getenv("CONVERT_URL", "http://localhost:8080")
 
 class GPT4Wrapper:
     def __init__(self, model_name="gpt-3.5-turbo"):
         self.model_name = model_name
         self.tokenizer = tiktoken.encoding_for_model(self.model_name)
-        openai.api_key = open("key.txt").read().strip()
+        openai.api_key = OPENAI_API_KEY if OPENAI_API_KEY is not None else open("key.txt").read().strip()
 
     def make_query_args(self, user_str, n_query=1):
         query_args = {
@@ -244,7 +246,7 @@ def step1_get_xml(input_file: str) -> str:
 
     # Send the POST request to the conversion service
     headers = {"Content-Type": "application/pdf"}
-    convert_url = "http://localhost:8080/api/convert"
+    convert_url = CONVERT_URL + "/api/convert"
     response = requests.post(
         convert_url, headers=headers, data=output_stream.getvalue()
     )
