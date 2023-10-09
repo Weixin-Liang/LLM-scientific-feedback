@@ -1,6 +1,5 @@
 # Can large language models provide useful feedback on research papers? A large-scale empirical analysis.
 
-[![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://lbesson.mit-license.org/)
 [![Python 3.10](https://img.shields.io/badge/python-3.10-blue.svg)](https://www.python.org/downloads/release/python-3100/)
 [![Black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/ambv/black)
 [![arXiv](https://img.shields.io/badge/arXiv-2310.01783-b31b1b.svg)](https://arxiv.org/abs/2310.01783)
