@@ -31,10 +31,11 @@ Expert feedback lays the foundation of rigorous research. However, the rapid gro
 
 ## Usage
 
-⚠️⚠️⚠️ **Our system currently only supports x86 Linux operating system** because of the ScienceBeam dependency. Please let us know if you find solutions for other operating systems! 
-
 To run the code, you need to 1) create a PDF parsing server and run in the background, 2) create the LLM feedback server, 3) open the web browser and upload your paper.
+
 ### Create and Run PDF Parsing Server
+
+⚠️⚠️⚠️ **ScienceBeam PDF parser only supports x86 Linux operating system. Please let us know if you find solutions for other operating systems!**
 
 ```bash
 conda env create -f conda_environment.yml
@@ -49,7 +50,8 @@ conda create -n llm python=3.10
 conda activate llm
 pip install -r requirements.txt
 cat YOUR_OPENAI_API_KEY > key.txt  # Replace YOUR_OPENAI_API_KEY with your OpenAI API key starting with "sk-"
-python main.py
+python main.py  # If you have installed ScienceBeam using x86 Linux and want to generate feedback from the raw PDF file
+python main_from_text.py  # If you are using other operating systems or want to generate feedback from the parsed paper in text format
 ```
 
 ### Open the Web Browser and Upload Your Paper
