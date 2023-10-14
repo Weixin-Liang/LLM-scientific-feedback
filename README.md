@@ -42,13 +42,20 @@ conda activate ScienceBeam
 python -m sciencebeam_parser.service.server --port=8080  # Make sure this is running in the background
 ```
 
+Or, use docker: (this image will listen on port 8070)
+```bash
+docker run -d --name sciencebeam_parser -p 8070:8070 elifesciences/sciencebeam-parser:0.1.8
+```
+
+At the first run, you need to wait the parser server to download some files.
+
 ### Create and Run LLM Feedback Server
 
 ```bash
 conda create -n llm python=3.10
 conda activate llm
 pip install -r requirements.txt
-cat YOUR_OPENAI_API_KEY > key.txt  # Replace YOUR_OPENAI_API_KEY with your OpenAI API key starting with "sk-"
+export OPENAI_API_KEY=sk-xxx  # Put your OpenAI API key here (starting with "sk-")
 python main.py
 ```
 
