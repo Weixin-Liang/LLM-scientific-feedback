@@ -31,6 +31,8 @@ Expert feedback lays the foundation of rigorous research. However, the rapid gro
 
 ## Usage
 
+⚠️⚠️⚠️ **Our system currently only supports x86 Linux operating system** because of the ScienceBeam dependency. Please let us know if you find solutions for other operating systems! 
+
 To run the code, you need to 1) create a PDF parsing server and run in the background, 2) create the LLM feedback server, 3) open the web browser and upload your paper.
 ### Create and Run PDF Parsing Server
 
