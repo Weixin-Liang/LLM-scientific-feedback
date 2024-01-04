@@ -11,10 +11,11 @@ import requests
 import tiktoken
 
 
-class GPT4Wrapper:
-    def __init__(self, model_name="gpt-3.5-turbo"):
+class LLMWrapper:
+    def __init__(self, model_name, max_tokens):
         self.model_name = model_name
         self.tokenizer = tiktoken.encoding_for_model(self.model_name)
+        self.max_tokens = max_tokens
         openai.api_key = open("key.txt").read().strip()
 
     def make_query_args(self, user_str, n_query=1):
@@ -42,7 +43,9 @@ class GPT4Wrapper:
         return result
 
 
-wrapper = GPT4Wrapper(model_name="gpt-4")
+# Check the current models and the context length (max tokens) of each model
+# in the OpenAI web interface: https://platform.openai.com/docs/models/gpt-4-and-gpt-4-turbo
+wrapper = LLMWrapper(model_name="gpt-4", max_tokens=6500)
 
 
 def extract_element_text(element):
@@ -175,9 +178,9 @@ def get_main_content(root):
     return main_content_str
 
 
-def truncate(input_text: str, max_tokens: int, wrapper) -> str:
+def truncate(input_text: str, wrapper) -> str:
     truncated_text = wrapper.tokenizer.decode(
-        wrapper.tokenizer.encode(input_text)[:max_tokens]
+        wrapper.tokenizer.encode(input_text)[:wrapper.max_tokens]
     )
     # Add back the closing ``` if it was truncated
     if not truncated_text.endswith("```"):
@@ -201,7 +204,6 @@ Main Content:
 ```
 {parsed_xml['main_content']}
 ```""",
-        6500,
         wrapper,
     )
 
