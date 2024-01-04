@@ -4,3 +4,4 @@ logs/
 *.pyc
 *.json
 *.txt
+key.txt
