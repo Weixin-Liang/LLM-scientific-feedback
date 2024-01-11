@@ -18,6 +18,10 @@ This repo provides the Python source code of our paper:
 }
 ```
 
+## GPT Store Launch
+🚀✨ Due to high demand, we have now launched an "AI Feedback on Research Manuscripts" GPT available on the OpenAI GPT store. 
+
+[![AI Feedback on Research Manuscripts](https://img.shields.io/badge/GPT%20Store-AI_Feedback_on_Research_Manuscripts-9cf)](https://chat.openai.com/g/g-rqNGmiRU9-ai-feedback-on-research-manuscripts)
 
 
 ## Abstract
