@@ -2,10 +2,7 @@ import json
 
 import gradio as gr
 
-from main import GPT4Wrapper, step3_get_lm_review
-
-wrapper = GPT4Wrapper(model_name="gpt-4")
-
+from main import step3_get_lm_review
 
 def process(title, abstract, figure_and_table_captions, main_content):
     parsed_xml = {
